@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Perros</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="static/css/stilo.css">
     </head>
     <body>
         <section>
@@ -22,7 +23,7 @@
             
             <section class="mt-5 mb-5 " id="formulario">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                               
@@ -31,37 +32,62 @@
                                   <h5 class="card-title">Insertar nuevo perro</h5>
                                   
                                   <div class="card-text">
-                                      <div class="mb-3">
-                                        <label for="formFile" class="form-label">Nombre</label>
-                                        <input class="form-control" type="text" id="formFile">
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="formFileMultiple" class="form-label">Raza</label> <br>
-                                            <select name="raza-selector" id="image-selector" class="form-select-sm form-selec" >
-                                                <option value="logo.svg" >selecciona una raza</option>
-                                                <option value="meme_1.jpg" >raza 1</option>
-                                                <option value="meme_2.jpg" >raza 2</option>
-                                                <option value="meme3.jpg" >raza 3</option>
-                                            </select>
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="formFileDisabled" class="form-label">Foto</label>
-                                        <input class="form-control" type="file" id="formFileDisabled" disabled>
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="formFileSm" class="form-label">Puntos</label>
-                                        <input class="form-control form-control-sm" id="formFileSm" type="text">
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="formFileLg" class="form-label">Edad</label> <br>
-                                        <select name="edad-selector" id="image-selector" class="form-select-sm form-selec" >
-                                            <option value="logo.svg" >selecciona la edad</option>
-                                            <option value="meme_1.jpg" >edad 1</option>
-                                            <option value="meme_2.jpg" >edad 2</option>
-                                            <option value="meme3.jpg" >edad 3</option>
-                                        </select>
-                                      </div>
-                                      
+                                      <form action="SvControl" method="POST">
+                                           <div class="input-group mb-3">
+                                                <label for="nombre" class="input-group-text">Nombre</label>
+                                                <input class="form-control" type="text" id="nombre" name="nombre">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label for="raza-selector" class="input-group-text" >Raza</label><br>
+                                                <select class="form-select" type="text" name="raza-selector">
+                                                    <option value="BASSET HOUND">BASSET HOUND</option>
+                                                    <option value="BEAGLE">BEAGLE</option>
+                                                    <option value="BERNES DE LA MONTAÑA">BERNES DE LA MONTAÑA</option>
+                                                    <option value="BORDER COLLIE">BORDER COLLIE</option>
+                                                    <option value="BOXER">BOXER</option>
+                                                    <option value="BULLDOG">BULLDOG</option>
+                                                    <option value="CANICHE">CANICHE</option>
+                                                    <option value="CANICHE">CHOW CHOW</option>
+                                                    <option value="COCKER">COCKER</option>
+                                                    <option value="COLLIE">COLLIE</option>
+                                                    <option value="DALMATA">DALMATA</option>
+                                                    <option value="DOBERMAN">DOBERMAN</option>
+                                                    <option value="GOLDEN RETRIEVER">GOLDEN RETRIEVER</option>
+                                                    <option value="GRAN DANÉS">GRAN DANÉS</option>
+                                                    <option value="HUSKY">HUSKY</option>
+                                                    <option value="LABRADOR">LABRADOR</option>
+                                                    <option value="PASTOR ALEMÁN">PASTOR ALEMÁN</option>
+                                                    <option value="PERRO SALCHICHA">PERRO SALCHICHA</option>
+                                                    <option value="PITBULL">PITBULL</option>
+                                                    <option value="SAN BERNARDO">SAN BERNARDO</option>
+                                                </select> 
+                                            </div>
+                                            <div class="input-group mb-3">
+                                              <label for="fotos" class="input-group-text">Foto</label>
+                                              <input class="form-control" type="text" id="fotos" name="fotos">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="puntos">puntos</label>
+                                                <select class="form-select" id="puntos" name="puntos">
+                                                  <option selected>0</option>
+                                                  <option value="1">1</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                                  <option value="5">5</option>
+                                                  <option value="6">6</option>
+                                                  <option value="7">7</option>
+                                                  <option value="8">8</option>
+                                                  <option value="9">9</option>
+                                                </select>
+                                             </div>
+                                            <div class="input-group mb-3">
+                                              <label for="edad" class="input-group-text">Edad</label>
+                                              <input class="form-control" type="text" id="edad" name="edad">
+                                            </div>
+                                            
+                                            <input class='btn btn-success' type="submit" value="Insertar Perro">
+                                        </form>
                                   </div>
                                   
                                   
@@ -74,6 +100,38 @@
                     </div>
 
                     <div class="col-md-8">
+                        
+                        <table class="table table-dark" >
+                            <thead>
+                              <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Raza</th>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Puntos</th>
+                                <th scope="col">Edad</th>
+                                <th scope="col">Acciones</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
 
                     </div>
 
