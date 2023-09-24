@@ -66,6 +66,10 @@ public class Perro {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public void add(Perro miPerro) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     

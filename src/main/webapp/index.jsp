@@ -30,6 +30,7 @@
                               <div class="col-md-12">
                                 <div class="card-body">
                                   <h5 class="card-title">Insertar nuevo perro</h5>
+                  
                                   
                                   <div class="card-text">
                                       <form action="SvControl" method="POST">
@@ -104,6 +105,9 @@
                         <table class="table table-dark" >
                             <thead>
                               <tr>
+                                 <h1>Listar Perros</h1>
+    <div class="Perro-list">
+       
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Raza</th>
                                 <th scope="col">Foto</th>

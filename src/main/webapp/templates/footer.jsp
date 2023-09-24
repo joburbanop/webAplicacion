@@ -21,30 +21,14 @@
         <li class="nav-item mb-2"><a >Precios</a></li>
         <li class="nav-item mb-2"><a >Preguntas Frecuentes</a></li>
         <li class="nav-item mb-2"><a >Acerca de nuestros servicios</a></li>
+         <li class="nav-item mb-2"><a >Contactos</a></li>
+         <li class="nav-item mb-2"><a >Ubicacion</a></li>
       </ul>
     </div>
 
-    <div class="col mb-3">
-      <h5 _>Sección</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a >Hogar</a></li>
-        <li class="nav-item mb-2"><a >Funciones</a></li>
-        <li class="nav-item mb-2"><a >Precios</a></li>
-        <li class="nav-item mb-2"><a >Preguntas Frecuentes</a></li>
-        <li class="nav-item mb-2"><a >Acerca de</a></li>
-      </ul>
-    </div>
+    
 
-    <div class="col mb-3">
-      <h5>Sección</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a >Hogar</a></li>
-        <li class="nav-item mb-2"><a >Funciones</a></li>
-        <li class="nav-item mb-2"><a >Precios</a></li>
-        <li class="nav-item mb-2"><a >Preguntas Frecuentes</a></li>
-        <li class="nav-item mb-2"><a >Acerca de</a></li>
-      </ul>
-    </div>
+    
   </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
