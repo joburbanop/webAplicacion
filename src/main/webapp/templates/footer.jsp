@@ -16,11 +16,11 @@
     <div class="col mb-3">
       <h5 >Sección</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a >Hogar</a></li>
+       
         <li class="nav-item mb-2"><a>Funciones</a></li>
         <li class="nav-item mb-2"><a >Precios</a></li>
         <li class="nav-item mb-2"><a >Preguntas Frecuentes</a></li>
-        <li class="nav-item mb-2"><a >Acerca de</a></li>
+        <li class="nav-item mb-2"><a >Acerca de nuestros servicios</a></li>
       </ul>
     </div>
 
