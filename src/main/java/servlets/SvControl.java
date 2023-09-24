@@ -76,12 +76,13 @@ public class SvControl extends HttpServlet {
         ObjectInputStream cargado = new ObjectInputStream(leer);
         
         try{
-            perro miPerro = (Perro) cargado.readObject();
+           datosPerro miPerro = (perro) cargado.readObject();
             miPerro.add(miPerro);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
         }
         cargado.close();
+         request.setAttribute("miPerro",miPerro);
         
         // Redirigir a la página index.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -94,9 +95,13 @@ public class SvControl extends HttpServlet {
         return "Short description";
     }
 
-    private static class miPerro {
+    private static class Perro {
 
-        public miPerro() {
+        public Perro(int parseInt, String raza, String fotos, String puntos, String edad) {
+        }
+
+        private void add(Perro miPerro) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
 

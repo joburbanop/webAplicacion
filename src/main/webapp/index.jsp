@@ -4,6 +4,8 @@
     Author     : jonathan
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="mundo.Perro"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,13 +109,21 @@
                               <tr>
                                  <h1>Listar Perros</h1>
     <div class="Perro-list">
-       
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Raza</th>
-                                <th scope="col">Foto</th>
-                                <th scope="col">Puntos</th>
-                                <th scope="col">Edad</th>
-                                <th scope="col">Acciones</th>
+                                 <%
+            ArrayList<Perro> miPerro = (ArrayList<Perro>)request.getAttribute("miPerro");
+            
+            for (Perro v : miPerro) {
+        %>
+        <div class="video-item">
+                                 <strong> Nombre:</strong> <%= v.getNombre() %><br>
+                                 <strong> Raza:</strong> <%= v.getRaza() %><br>
+                                 <strong> Foto:</strong> <= v.getFoto() %><br>
+                                 <strong> Puntos:</strong> <%= v.getPuntos() %><br>
+                                 <strong> Edad:</strong> <%= v.getEdad() %><br>
+                                 <strong> Acciones:</strong> <= v.getAcciones() %><br>
+                                 
+                                 
+                                
                               </tr>
                             </thead>
                             <tbody>
