@@ -46,44 +46,24 @@ public class SvControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-    
-        ArrayList<Perro> listaPerros = (ArrayList<Perro>) getServletContext().getAttribute("listaPerros");
-        if (listaPerros == null) {
-            listaPerros = new ArrayList<>();
-            getServletContext().setAttribute("listaPerros", listaPerros);
-        }
-        
+        //Agregando todos los atributos de un perro, estos artibutos vienen del formulario en index
         String nombre=request.getParameter("nombre");
         String raza=request.getParameter("raza-selector");
         String fotos=request.getParameter("fotos");
         String puntos=request.getParameter("puntos");
         String edad=request.getParameter("edad");
-       
         
-        //ingresar datos del objeto
+        //creando objetos con los datos ingresados o tradios del formulario 
+        Perro nuevoPerro=new Perro(nombre,raza,fotos,Integer.parseInt(puntos),Integer.parseInt(edad));
+        listarPerros.add(nuevoPerro);
         
-        Perro miPerro = new Perro(Integer.parseInt(nombre), raza, fotos, puntos,edad);
-       
-       FileOutputStream datosPerro = new FileOutputStream(getServletContext().getRealPath("listaPerros.data"), true);
-        ObjectOutputStream escribir = new ObjectOutputStream (datosPerro);
-        escribir.writeObject(miPerro);
-        datosPerro.close();
-        escribir.close();
-        //Deserializar 
-        FileInputStream leer = new FileInputStream(getServletContext().getRealPath("listaPerro.data"));
-        //leer
-        ObjectInputStream cargado = new ObjectInputStream(leer);
+        //serealizando
+        FileOutputStream archivo = new FileOutputStream(getServletContext().getRealPath("perrosGuardados.data"),true);
+        ObjectOutputStream cargado = new ObjectOutputStream(archivo);
+        cargado.writeObject(listarPerros);
         
-        try{
-           datosPerro miPerro = (perro) cargado.readObject();
-            miPerro.add(miPerro);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
         cargado.close();
-         request.setAttribute("miPerro",miPerro);
-        
+        archivo.close();
         
         // Redirigir a la página index.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -96,14 +76,6 @@ public class SvControl extends HttpServlet {
         return "Short description";
     }
 
-    private static class Perro {
-
-        public Perro(int parseInt, String raza, String fotos, String puntos, String edad) {
-        }
-
-        private void add(Perro miPerro) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-    }
+    
 
 }

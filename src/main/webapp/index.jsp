@@ -101,35 +101,28 @@
                         </div>
 
                     </div>
+                    
 
                     <div class="col-md-8">
                         
                         <table class="table table-dark" >
-                            <thead>
-                              <tr>
-                                 <h1>Listar Perros</h1>
-    <div class="Perro-list">
-                                 <%
-            ArrayList<Perro> miPerro = (ArrayList<Perro>)request.getAttribute("miPerro");
-            
-            for (Perro v : miPerro) {
-        %>
-        <div class="video-item">
-                                 <strong> Nombre:</strong> <%= v.getNombre() %><br>
-                                 <strong> Raza:</strong> <%= v.getRaza() %><br>
-                                 <strong> Foto:</strong> <= v.getFoto() %><br>
-                                 <strong> Puntos:</strong> <%= v.getPuntos() %><br>
-                                 <strong> Edad:</strong> <%= v.getEdad() %><br>
-                                 <strong> Acciones:</strong> <= v.getAcciones() %><br>
-                                 
-                                 
-                                
-                              </tr>
+                             <thead>
+                                <tr>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Raza</th>
+                                  <th scope="col">Foto</th>
+                                  <th scope="col">Puntos</th>
+                                  <th scope="col">Edad</th>
+                                  <th scope="col">Acciones</th>
+                                </tr>
+                              </thead>
                             </thead>
                             <tbody>
                               <tr>
                                 <th scope="row">1</th>
                                 <td></td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
                               </tr>
@@ -138,14 +131,25 @@
                                 <td>Jacob</td>
                                 <td>Thornton</td>
                                 <td>@fat</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
                               </tr>
                               <tr>
                                 <th scope="row">3</th>
                                 <td colspan="2">Larry the Bird</td>
                                 <td>@twitter</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
                               </tr>
                             </tbody>
-                          </table>
+                        </table>
 
                     </div>
 

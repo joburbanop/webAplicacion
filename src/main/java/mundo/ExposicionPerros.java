@@ -21,13 +21,36 @@ public class ExposicionPerros {
     public ExposicionPerros() {
     }
 
-    public static List<Perro> getPerros() {
+    public static List<Perro> darPerros() {
         return perros;
     }
     
+        
+    public void ordenarPorRaza(){
+            
+    }
+    
+    public  void ordenaaPorNombre(){
+    }
+    
+    public void ordenarPorPuntos(){
+    }
+       
+    public void ordenarPorEdad(){
+    }
+    
+    public int buscarPerro(String nombre){
+        
+        return 1;
+    }
+    
+    public int buscarBinarioPorNombre(String nombre){
+        
+        return 1;
+    }
     
     
-    public boolean agregarPerros(String nombre, String raza, String imagenes, int puntos, int edad ){
+        public boolean agregarPerros(String nombre, String raza, String imagenes, int puntos, int edad ){
         
         if (nombre!=null){
             
@@ -39,10 +62,29 @@ public class ExposicionPerros {
         else{
             return false;
         }
-        
-        
-        
     }
     
     
+    public void verificarInvariante(){
+    }
+    
+    public boolean buscarPerrosConNombresRepetidos(){
+        
+        return true;
+    }
+    
+    public int buscarPerroMayorPuntaje(){
+        return 1;
+    }
+    
+    public int buscarPerroMenorPuntaje(){
+        return 1;
+    }
+        
+    public int buscarPerroMayorEdado(){
+        
+        return 1;
+        
+    }
+  
 }

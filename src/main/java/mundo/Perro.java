@@ -4,27 +4,27 @@
  */
 package mundo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonathan
  */
-public class Perro {
-    
+public class Perro implements Serializable {
+
     private String nombre;
     private String raza;
     private String imagenes;
     private int puntos;
     private int edad;
-
+    
     public Perro(String nombre, String raza, String imagenes, int puntos, int edad) {
-        this.nombre = nombre;
-        this.raza = raza;
-        this.imagenes = imagenes;
-        this.puntos = puntos;
-        this.edad = edad;
-    }
-
-    public Perro() {
+        this.nombre=nombre;
+        this.raza=raza;
+        this.imagenes=imagenes;
+        this.puntos=puntos;
+        this.edad=edad;
+           
     }
 
     public String getNombre() {
@@ -66,11 +66,5 @@ public class Perro {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-    public void add(Perro miPerro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
     
 }
