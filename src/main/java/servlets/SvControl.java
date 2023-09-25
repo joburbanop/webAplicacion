@@ -30,6 +30,7 @@ public class SvControl extends HttpServlet {
 
     ArrayList<Perro> listarPerros = new ArrayList<>();
     
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -40,23 +41,26 @@ public class SvControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Obtener la lista de perros del archivo
-        FileInputStream archivo = new FileInputStream(getServletContext().getRealPath("perrosGuardados.txt"));
-        ObjectInputStream cargado = new ObjectInputStream(archivo);
-        List<Perro> listarPerros = null;
+        
+        FileInputStream cargar = new FileInputStream(getServletContext().getRealPath("perrosGuardados.txt"));
+        ObjectInputStream caragado = new ObjectInputStream(cargar);
+
         try {
-            listarPerros = (List<Perro>) cargado.readObject();
+            ArrayList<Perro> listaPerros = (ArrayList<Perro>) caragado.readObject();
+            // Ahora tienes una lista de objetos Perro
+            listarPerros.addAll(listaPerros);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        cargado.close();
-        archivo.close();
 
-        // Establecer la lista de perros como atributo de la solicitud
-        request.setAttribute("listarPerros", listarPerros);
+        caragado.close();
 
-        // Redirigir a la página index.jsp
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+       
+       request.setAttribute("listarPerros",listarPerros);
+       request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+        
+
         
        
     }

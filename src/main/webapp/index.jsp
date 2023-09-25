@@ -134,13 +134,14 @@
                             </thead>
                             <tbody>
                               <% for (Perro perro : listarPerros) { %>
+                                
                                 <tr>
-                                  <th scope="row"><%= perro.getNombre() %></th>
-                                  <td><%= perro.getRaza() %></td>
-                                  <td><%= perro.getImagenes() %></td>
-                                  <td><%= perro.getPuntos() %></td>
-                                  <td><%= perro.getEdad()  %> </td>
-                                  <td>accion</td>
+                                    <th scope="row"><%= perro.getNombre() %></th>
+                                    <td><%= perro.getRaza() %></td>
+                                    <td><%= perro.getImagenes() %></td>
+                                    <td><%= perro.getPuntos() %></td>
+                                    <td><%= perro.getEdad() %></td>
+                                    <td>accion</td>
                                 </tr>
                                
                               <% } %>
