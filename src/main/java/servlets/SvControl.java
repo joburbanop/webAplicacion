@@ -44,6 +44,7 @@ public class SvControl extends HttpServlet {
         String puntos=request.getParameter("puntos");
         String edad=request.getParameter("edad");
         
+        
         // Redirigir a la página index.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
         
