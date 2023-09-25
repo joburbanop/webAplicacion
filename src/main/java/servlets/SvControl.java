@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -39,6 +40,24 @@ public class SvControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // Obtener la lista de perros del archivo
+        FileInputStream archivo = new FileInputStream(getServletContext().getRealPath("perrosGuardados.txt"));
+        ObjectInputStream cargado = new ObjectInputStream(archivo);
+        List<Perro> listarPerros = null;
+        try {
+            listarPerros = (List<Perro>) cargado.readObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cargado.close();
+        archivo.close();
+
+        // Establecer la lista de perros como atributo de la solicitud
+        request.setAttribute("listarPerros", listarPerros);
+
+        // Redirigir a la página index.jsp
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
        
     }
 
@@ -58,14 +77,18 @@ public class SvControl extends HttpServlet {
         listarPerros.add(nuevoPerro);
         
         //serealizando
-        FileOutputStream archivo = new FileOutputStream(getServletContext().getRealPath("perrosGuardados.data"),true);
+        FileOutputStream archivo = new FileOutputStream(getServletContext().getRealPath("perrosGuardados.txt"),true);
         ObjectOutputStream cargado = new ObjectOutputStream(archivo);
         cargado.writeObject(listarPerros);
         
         cargado.close();
         archivo.close();
         
+        
+    
+        
         // Redirigir a la página index.jsp
+        
         request.getRequestDispatcher("index.jsp").forward(request, response);
         
     }

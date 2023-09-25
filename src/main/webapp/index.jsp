@@ -4,6 +4,11 @@
     Author     : jonathan
 --%>
 
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.io.ObjectInputStream"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="mundo.Perro"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,7 +26,7 @@
                 <%@include file="templates/header.jsp"%>
          </section>
         <div class="container">
-            
+            <a href="SvControl" class="btn btn-success">Ver lista perros </a>
             
             <section class="mt-5 mb-5 " id="formulario">
                 <div class="row">
@@ -104,6 +109,16 @@
                     
 
                     <div class="col-md-8">
+                            <%
+                                // Obtener los datos de la solicitud
+                                List<Perro> listarPerros = (List<Perro>) request.getAttribute("listarPerros");
+
+                                if (listarPerros == null) {
+                                    // Mostrar un mensaje de error al usuario
+                                    request.setAttribute("error", "La lista de perros está vacía.");
+
+                                }
+                            %>
                         
                         <table class="table table-dark" >
                              <thead>
@@ -118,36 +133,17 @@
                               </thead>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td></td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">4</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                              </tr>
+                              <% for (Perro perro : listarPerros) { %>
+                                <tr>
+                                  <th scope="row"><%= perro.getNombre() %></th>
+                                  <td><%= perro.getRaza() %></td>
+                                  <td><%= perro.getImagenes() %></td>
+                                  <td><%= perro.getPuntos() %></td>
+                                  <td><%= perro.getEdad()  %> </td>
+                                  <td>accion</td>
+                                </tr>
+                               
+                              <% } %>
                             </tbody>
                         </table>
 
