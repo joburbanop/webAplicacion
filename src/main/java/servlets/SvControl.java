@@ -37,65 +37,56 @@ public class SvControl extends HttpServlet {
         }
     
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-        FileInputStream cargar = new FileInputStream(getServletContext().getRealPath("perrosGuardados.txt"));
-        ObjectInputStream caragado = new ObjectInputStream(cargar);
 
-        try {
-            ArrayList<Perro> listaPerros = (ArrayList<Perro>) caragado.readObject();
-            // Ahora tienes una lista de objetos Perro
-            listarPerros.addAll(listaPerros);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+  @Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    FileInputStream cargar = new FileInputStream(getServletContext().getRealPath("perrosGuardados.txt"));
+    ObjectInputStream caragado = new ObjectInputStream(cargar);
+    try {
+        ArrayList<Perro> listaPerros = (ArrayList<Perro>) caragado.readObject();
+        System.out.println("Tamaño de la lista de perros cargada desde el archivo: " + listaPerros.size());
+        listarPerros.clear(); // Limpia la lista actual
+        listarPerros.addAll(listaPerros); // Agrega los elementos cargados a la lista actual
         caragado.close();
-
-       
-       request.setAttribute("listarPerros",listarPerros);
-       request.getRequestDispatcher("index.jsp").forward(request, response);
-        
-        
-
-        
-       
+    } catch (IOException | ClassNotFoundException ex) {
+        Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
     }
+    request.setAttribute("listarPerros", listarPerros);
+    request.getRequestDispatcher("index.jsp").forward(request, response);
+}
+
+
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Agregando todos los atributos de un perro, estos artibutos vienen del formulario en index
-        String nombre=request.getParameter("nombre");
-        String raza=request.getParameter("raza-selector");
-        String fotos=request.getParameter("fotos");
-        String puntos=request.getParameter("puntos");
-        String edad=request.getParameter("edad");
-        
-        //creando objetos con los datos ingresados o tradios del formulario 
-        Perro nuevoPerro=new Perro(nombre,raza,fotos,Integer.parseInt(puntos),Integer.parseInt(edad));
+        // Agregando todos los atributos de un perro, estos atributos vienen del formulario en index
+        String nombre = request.getParameter("nombre");
+        String raza = request.getParameter("raza-selector");
+        String fotos = request.getParameter("fotos");
+        String puntos = request.getParameter("puntos");
+        String edad = request.getParameter("edad");
+
+        // Creando objeto con los datos ingresados o traídos del formulario
+        Perro nuevoPerro = new Perro(nombre, raza, fotos, Integer.parseInt(puntos), Integer.parseInt(edad));
+
+        // Agregar el nuevo perro a la lista
         listarPerros.add(nuevoPerro);
-        
-        //serealizando
-        FileOutputStream archivo = new FileOutputStream(getServletContext().getRealPath("perrosGuardados.txt"),true);
+
+        // Serializar la lista completa y escribirla en el archivo
+        FileOutputStream archivo = new FileOutputStream(getServletContext().getRealPath("perrosGuardados.txt"));
         ObjectOutputStream cargado = new ObjectOutputStream(archivo);
         cargado.writeObject(listarPerros);
-        
+
         cargado.close();
         archivo.close();
-        
-        
-    
-        
+
         // Redirigir a la página index.jsp
-        
         request.getRequestDispatcher("index.jsp").forward(request, response);
-        
     }
+
 
     
     @Override
