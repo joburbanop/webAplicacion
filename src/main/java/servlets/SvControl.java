@@ -77,10 +77,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Error</title></head><body>");
-out.println("<div class='alert alert-danger' role='alert'>Por favor, complete todos los campos.</div>");
-out.println("<script>setTimeout(function() { history.back(); }, 3000);</script>"); // Redirigir después de 3 segundos
-out.println("</body></html>");
-
+            out.println("<script>alert('Por favor, complete todos los campos.'); history.back();</script>");
+            out.println("</body></html>");
         } else {
              // Creando objeto con los datos ingresados o traídos del formulario
         Perro nuevoPerro = new Perro(nombre, raza, fotos, Integer.parseInt(puntos), Integer.parseInt(edad));
