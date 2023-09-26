@@ -69,7 +69,20 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
         String puntos = request.getParameter("puntos");
         String edad = request.getParameter("edad");
 
-        // Creando objeto con los datos ingresados o traídos del formulario
+        
+        
+        // Verifica si algún campo está vacío
+        if (nombre.isEmpty() || raza.isEmpty() || fotos.isEmpty() || puntos.isEmpty() || edad.isEmpty()) {
+            // Genera una respuesta que muestra una alerta en el navegador del usuario
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Error</title></head><body>");
+out.println("<div class='alert alert-danger' role='alert'>Por favor, complete todos los campos.</div>");
+out.println("<script>setTimeout(function() { history.back(); }, 3000);</script>"); // Redirigir después de 3 segundos
+out.println("</body></html>");
+
+        } else {
+             // Creando objeto con los datos ingresados o traídos del formulario
         Perro nuevoPerro = new Perro(nombre, raza, fotos, Integer.parseInt(puntos), Integer.parseInt(edad));
 
         // Agregar el nuevo perro a la lista
@@ -82,9 +95,15 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 
         cargado.close();
         archivo.close();
-
+        
         // Redirigir a la página index.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        
+        
+        
+        
+       
     }
 
 
@@ -97,3 +116,5 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     
 
 }
+
+
