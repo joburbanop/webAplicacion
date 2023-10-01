@@ -1,18 +1,49 @@
 <body>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/css/stilo.css">   
+    <link rel="stylesheet" href="./static/css/stilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+    <style>
+        header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            backdrop-filter: blur(0px);
+            transition: backdrop-filter 0.3s;
+          }
+    </style>
     
         
     <header>
       
-        <nav class="navbar bg-body-tertiary">
-          <div class="container">
-            <a class="navbar-brand" href="#index.jsp">
-              <img src="./static/imagenes/headerImagen.jpg" alt="perros" class="img_perro" >        
-            </a>
-          </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./static/imagenes/headerImagen.jpg" alt="perros" width="300" height="50"> </a>
+              
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                  
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Ordenamientos
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Por nombre</a></li>
+                      <li><a class="dropdown-item" href="#">Por puntos</a></li>
+                      <li><a class="dropdown-item" href="#">Por raza </a></li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-6" type="search" placeholder="Buscar por nombre" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
         </nav>
 
     </header>

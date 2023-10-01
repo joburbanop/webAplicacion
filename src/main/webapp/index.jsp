@@ -26,10 +26,10 @@
         <section>
                 <%@include file="templates/header.jsp"%>
          </section>
-        <div class="container">
+        <div class="container py-5">
             
             
-            <section class="mt-5 mb-5 " id="formulario">
+            <section class="mt-5 mb-5  py-5" id="formulario">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card mb-3" style="max-width: 540px;">
