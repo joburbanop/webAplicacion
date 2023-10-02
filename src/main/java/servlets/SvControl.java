@@ -57,8 +57,8 @@ public void init() throws ServletException {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     
-    
-     String nombre = request.getParameter("nombre");
+
+        String nombre = request.getParameter("nombre");
         Perro perro =ExposicionPerros.buscarPerroPorNombre(nombre); // Implementa la lógica para buscar el perro en tu lista de perros
         if (perro != null) {
             // Genera la respuesta HTML con los detalles del perro
@@ -87,6 +87,12 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
         /*--------------------------------------------------------------------
         *Serializacion
        *----------------------------------------------------------------------- */
+        
+        // Crear una carpeta
+        // Crear una carpeta
+            
+        
+        
         Part imagenPart = request.getPart("fotos");
         System.out.println("imagenPart" + imagenPart);
 
@@ -151,17 +157,14 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
                  request.setAttribute("misPerros", listarPerros);
                  
                  
-                 // Redirigir a la página index.jsp
-                 request.getRequestDispatcher("index.jsp").forward(request, response);
+                 
              } catch (ClassNotFoundException ex) {
                  Logger.getLogger(SvControl.class.getName()).log(Level.SEVERE, null, ex);
              }
         }
         
-        
-        
-        
-       
+       // Redirigir a la página index.jsp
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
 

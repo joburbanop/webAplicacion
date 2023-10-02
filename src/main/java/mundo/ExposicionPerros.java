@@ -24,9 +24,12 @@ public class ExposicionPerros {
    // Creamos la lista darPerros y la definimos 
     // La definimos como "sttatic" para que este disponible en el todo el programa
     public static ArrayList<Perro> listarPerros = new ArrayList<>();
+    public static ArrayList<Perro> listaNueva = new ArrayList<>();
     
-    // Método para guardar la lista de perros en un archivo perros.ser
+// Método para guardar la lista de perros en un archivo perros.ser
     public static void guardarPerro(ArrayList<Perro> perros, ServletContext context) throws IOException {
+        
+
         
         //Definimos una ruta para buscar nuestro archivo perro.ser
         String relativePath = "/data/datosPerro.txt";
@@ -40,10 +43,13 @@ public class ExposicionPerros {
             caragado.writeObject(perros);
             caragado.close();
             System.out.println("Datos de perros guardados exitosamente en: perros.ser"+ relativePath);
+            
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error al guardar los datos de perro: " + e.getMessage());
         }
+        
+        
     }
 
     // Método para cargar los perros desde el archivo deserializándolo
@@ -80,5 +86,49 @@ public class ExposicionPerros {
         }
         return null; // Retorna null si no se encuentra el perro
     }
-  
+   
+    public static void EliminarPerro(String nombre,ServletContext context) throws IOException  {
+     
+    
+
+        // Buscamos el perro por su nombre
+        Perro perro = buscarPerroPorNombre(nombre);
+        //System.out.println("perro"+perro.getNombre());
+        // Si el perro se encuentra, lo eliminamos de la lista
+        if (!perro.getNombre().equals("null")) {
+            listarPerros.remove(perro);
+            System.out.println("perro: "+perro.getNombre()+listarPerros.size());
+            eliminarContenidoArchivo(context);
+            guardarPerro(listarPerros,context);
+
+            
+        }
+        else{
+            System.out.println("perro no se encuentra para eliminar ");
+        }
+    }
+
+    public static void eliminarContenidoArchivo(ServletContext context) throws IOException {
+
+        //Definimos una ruta para buscar nuestro archivo perro.ser
+        String relativePath = "/data/datosPerro.txt";
+        String absPath = context.getRealPath(relativePath);
+        File archivo = new File(absPath);
+        
+        try {
+            // Crear un archivo para guardar la lista de perros serializada
+            FileOutputStream cargar = new FileOutputStream(archivo);
+            ObjectOutputStream caragado = new ObjectOutputStream(cargar);
+            caragado.writeObject("");
+            caragado.close();
+            
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al guardar los datos de perro: " + e.getMessage());
+        }
+
+    }
+
+    
 }
