@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.ServletContext;
 
@@ -24,7 +26,7 @@ public class ExposicionPerros {
    // Creamos la lista darPerros y la definimos 
     // La definimos como "sttatic" para que este disponible en el todo el programa
     public static ArrayList<Perro> listarPerros = new ArrayList<>();
-    public static ArrayList<Perro> listaNueva = new ArrayList<>();
+    public static ArrayList<Perro> listaOrdenada = new ArrayList<>();
     
 // Método para guardar la lista de perros en un archivo perros.ser
     public static void guardarPerro(ArrayList<Perro> perros, ServletContext context) throws IOException {
@@ -129,6 +131,63 @@ public class ExposicionPerros {
         }
 
     }
+   
+ 
+// Método para ordenar la lista de perros por edad, puntos y nombre
+    public static void ordenarPerrosPor(String eleccion,ServletContext context) throws IOException {
+       switch(eleccion){
+            case "puntos":
+               // Define un comparador para ordenar por puntos
+                Comparator<Perro> comparador = Comparator.comparingInt(Perro::getPuntos);
+
+                // Ordena la lista de perros usando el comparador
+                Collections.sort(listarPerros, comparador);
+                eliminarContenidoArchivo(context);
+                guardarPerro(listarPerros, context);
+                // Opcional: Puedes imprimir la lista ordenada si lo deseas
+                for (Perro perro : listarPerros) {
+                    System.out.println("Nombre: " + perro.getNombre() + ", Puntos: " + perro.getPuntos());
+                }
+            break;
+            
+            case "nombre":
+                // Define un comparador para ordenar alfabéticamente por nombre
+                Comparator<Perro> comparadorNombre = Comparator.comparing(Perro::getNombre);
+
+                // Ordena la lista de perros usando el comparador
+                Collections.sort(listarPerros, comparadorNombre);
+                eliminarContenidoArchivo(context);
+                guardarPerro(listarPerros, context);
+                // Opcional: Puedes imprimir la lista ordenada si lo deseas
+                for (Perro perro : listarPerros) {
+                    System.out.println("Nombre: " + perro.getNombre());
+                }
+               
+            break;
+            
+            case "raza":
+                // Define un comparador para ordenar alfabéticamente por raza
+                Comparator<Perro> comparadorraza = Comparator.comparing(Perro::getRaza);
+
+                // Ordena la lista de perros usando el comparador
+                Collections.sort(listarPerros, comparadorraza);
+                eliminarContenidoArchivo(context);
+                guardarPerro(listarPerros, context);
+                
+                // Opcional: Puedes imprimir la lista ordenada si lo deseas
+                for (Perro perro : listarPerros) {
+                    System.out.println("Raza: " + perro.getRaza());
+                }
+               
+            break; 
+            
+            
+
+                
+                
+       }
+    }
+
 
     
 }

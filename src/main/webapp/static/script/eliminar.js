@@ -20,7 +20,7 @@ $('#eliminar').click(function() {
              }
         });
       swal("Perro ha sido eliminado!", {
-        icon: "success",
+        icon: "éxito",
       });
     } else {
       swal("¡Tu perro está a salvo!");
