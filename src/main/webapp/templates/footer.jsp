@@ -8,13 +8,52 @@
             display: flex;
             justify-content: space-between;
         }
+         
+
+       footer p {
+        color: #ffffff;
+        transition: color 0.3s ease-in-out; /* Agrega una animación de cambio de color */
+    }
+
+    footer p:hover {
+        color: #f8b400; /* Cambia el color al pasar el mouse */
+    }
+
+    footer .footer-logo {
+        fill: #ffffff;
+        width: 40px;
+        height: 32px;
+        margin-right: 10px;
+        transition: fill 0.3s ease-in-out; /* Agregamos una animación de transición */
+    }
+
+    footer .footer-logo:hover {
+        fill: #f8b400; /* Cambia el color al pasar el mouse */
+    }
+
+    footer .footer-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .footer-links h5 {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    footer .footer-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    footer .footer-links li {
+        margin-bottom: 10px;
+    }
     </style>
 
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3">
-          <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          </a>
+          
             <p class="text-bodt-secondary"> <img src="./static/imagenes/headerImagen.jpg" alt="perros" width="300" height="50"> © 2023</p>
 
         </div>

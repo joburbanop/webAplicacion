@@ -37,7 +37,7 @@ public class SvEliminar extends HttpServlet {
         boolean  editar=true;
         ServletContext servletContext = getServletContext();
         
-        String nombre = request.getParameter("nombre");
+        String nombre = request.getParameter("nombreAEditar");
         //System.out.print("nombre a buscar: "+ nombre);
         Perro perro =ExposicionPerros.buscarPerroPorNombre(nombre); // Implementa la lógica para buscar el perro en tu lista de perros
         //System.out.print("perro encontrado: "+ perro.getNombre());
@@ -61,6 +61,8 @@ public class SvEliminar extends HttpServlet {
         ServletContext servletContext = getServletContext();
         
         String nombre = request.getParameter("nombre");
+        
+        System.out.println("verificando si se llama correctamente: "+ nombre);
         
         ExposicionPerros.EliminarPerro(nombre,servletContext); // Implementa la lógica para buscar el perro en tu lista de perros
          

@@ -1,7 +1,9 @@
-$('#eliminar').click(function() {
+$('.eliminar').click(function() {
+    var nombre=$(this).data('elimniar');
+    console.log(nombre);
   swal({
     title: "¿Estás seguro?",
-    text: "Una vez eliminado, no podrás recuperar a: "+     $(this).data('elimniar'),
+    text: "Una vez eliminado, no podrás recuperar a: "+ nombre,
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -9,7 +11,7 @@ $('#eliminar').click(function() {
   .then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: 'SvEliminar?nombre=' + $(this).data('elimniar'),
+        url: 'SvEliminar?nombre=' + nombre,
         method: 'POST',
         success: function () {
                                                     

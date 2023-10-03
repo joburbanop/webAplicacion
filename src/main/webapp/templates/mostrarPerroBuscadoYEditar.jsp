@@ -11,20 +11,75 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+       
+        <title>
+            edicion
+        </title>
+        <style>
+            
+            /* Estilo para la tarjeta */
+            .card {
+                border: none;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                background-color: #ffffff;
+            }
+
+            .card:hover {
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .card-title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .card-text {
+                font-size: 18px;
+            }
+
+            /* Estilo para la imagen dentro de la tarjeta */
+            .card-img-top {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Estilo para el contenedor principal */
+            .container {
+                padding: 20px;
+            }
+            
+            .modern-form {
+                background-color: #f7f7f7;
+                padding: 20px;
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .form-title {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+        </style>    
+            
     </head>
-    <body>
+    <body class="container">
         <section>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <header style="z-index: 1000;">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.jsp"><img src="./static/imagenes/headerImagen.jpg" alt="perros" width="300" height="50"> Inicio</a>
 
                 </div>
                 
             </nav>
+            </header>
         </section>
         
-        <section class="container">
+        <section class="container mt-5 ">
             
             
                             <%
@@ -46,45 +101,31 @@
                                 }
                             %>
                     <% if (editar==false) {%>
-                        <table class="table table-dark" >
-                             <thead>
-                                <tr>
-                                  <th scope="col">Nombre</th>
-                                  <th scope="col">Raza</th>
-                                  <th scope="col">Foto</th>
-                                  <th scope="col">Puntos</th>
-                                  <th scope="col">Edad</th>
-                                  
-                                </tr>
-                              </thead>
-                            
-                            <tbody>
-                                
+                        <div class="d-flex justify-content-center align-items-center py-5">
+                            <div class="card w-50 mb-3 ">
+                                <img src="./static/imagenes/<%=perroEditar.getImagenes() %>" class="card-img-top" alt="img_perro_editar">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nombre: <%=perroEditar.getNombre()  %></h5>
+                                    <p class="card-text">Raza: <%=perroEditar.getRaza() %></p>
+                                    <p class="card-text">Puntos: <%=perroEditar.getPuntos() %></p>
+                                    <p class="card-text">Edad: <%=perroEditar.getEdad() %></p>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <tr>
-                                        <th scope="row"><%= perroEditar.getNombre() %></th>
-                                        <td><%= perroEditar.getRaza() %></td>
-                                        <td><%= perroEditar.getImagenes() %></td>
-                                        <td><%= perroEditar.getPuntos() %></td>
-                                        <td><%= perroEditar.getEdad() %></td>
-                                        
-                                    </tr>
 
-                              
-                            </tbody>
-                        </table>
                     <%}%>      
                     
                     <% if (editar==true){%>
                       
-                    <div class="row">
+                    <div class="row d-flex justify-content-center">
                         
-                        <div class="col-md-5">
-                            <h6> Editar informacion del perro</h6>
-                            <form action="SvEditar" method="POST" enctype="multipart/form-data">
-                                <div class="input-group mb-3">
-                                    <label for="nombre" class="input-group-text">Nombre</label>
-                                    <input class="form-control" type="text" id="nombre" name="nombre" value="<%= perroEditar.getNombre() %>" readonly>
+                        <div class="col-md-5 mt-5 d-flex justify-content-center">
+                            
+                            <form action="SvEditar" method="POST" enctype="multipart/form-data" class="modern-form">
+                                <div class="input-group mb-3" class="input-group-text">
+                                    
+                                    <input class="form-control form-title"  type="text" id="nombre" name="nombre" value="<%= perroEditar.getNombre() %>" readonly>
                                 </div>
 
                                             <div class="input-group mb-3">
@@ -148,14 +189,14 @@
                             </form>
                         </div>
                         
-                        <div class="col-md-7">
+                        <div class="col-md-7 mt-5 d-flex justify-content-center">
                             
-                            <div class="card" style="width: 18rem;">
-                            <img src="./static/imagenes/<%=perroEditar.getImagenes() %>" class="card-img-top" alt="img_perro_editar">
-                            <div class="card-body">
-                              <p class="card-text" >Nombre : <%=perroEditar.getNombre()  %></p>
+                            <div class="card mb-3" style="width: 18rem;">
+                                <img src="./static/imagenes/<%=perroEditar.getImagenes() %>" class="card-img-top" alt="img_perro_editar">
+                                <div class="card-body">
+                                  <h5 class="card-title" >Nombre : <%=perroEditar.getNombre()  %></h5>
+                                </div>
                             </div>
-</div>
                         </div>
                         
                     </div>

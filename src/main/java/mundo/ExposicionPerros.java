@@ -150,9 +150,9 @@ public class ExposicionPerros {
                 eliminarContenidoArchivo(context);
                 guardarPerro(listarPerros, context);
                 // Opcional: Puedes imprimir la lista ordenada si lo deseas
-                for (Perro perro : listarPerros) {
+                /*for (Perro perro : listarPerros) {
                     System.out.println("Nombre: " + perro.getNombre() + ", Puntos: " + perro.getPuntos());
-                }
+                }*/
             break;
             
             case "nombre":
@@ -164,9 +164,9 @@ public class ExposicionPerros {
                 eliminarContenidoArchivo(context);
                 guardarPerro(listarPerros, context);
                 // Opcional: Puedes imprimir la lista ordenada si lo deseas
-                for (Perro perro : listarPerros) {
+               /* for (Perro perro : listarPerros) {
                     System.out.println("Nombre: " + perro.getNombre());
-                }
+                }*/
                
             break;
             
@@ -180,9 +180,9 @@ public class ExposicionPerros {
                 guardarPerro(listarPerros, context);
                 
                 // Opcional: Puedes imprimir la lista ordenada si lo deseas
-                for (Perro perro : listarPerros) {
+                /*for (Perro perro : listarPerros) {
                     System.out.println("Raza: " + perro.getRaza());
-                }
+                }*/
                
             break; 
             
