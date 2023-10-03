@@ -20,7 +20,7 @@
       
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./static/imagenes/headerImagen.jpg" alt="perros" width="300" height="50"> </a>
+                <a class="navbar-brand" href="#index.jsp"><img src="./static/imagenes/headerImagen.jpg" alt="perros" width="300" height="50"> ExpoPerro</a>
               
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
@@ -38,13 +38,22 @@
                     </ul>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-6" type="search" placeholder="Buscar por nombre" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  <form class="d-flex"  role="search" action="SvOrdenar" method="GET" >
+                  <input class="form-control me-6" type="search" placeholder="Buscar por nombre" name="buscar" aria-label="Search" required>
+                  <button class="btn btn-outline-success" type="submit"  >Buscar</button>
                 </form>
               </div>
             </div>
         </nav>
+        
+        
+        
+        
+        <!-- ventana Modal -->
+         
+
+
+
 
     </header>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -98,6 +107,9 @@
                      }
                 });
           });
+          
+        
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 

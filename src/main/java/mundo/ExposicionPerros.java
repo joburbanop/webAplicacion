@@ -81,9 +81,14 @@ public class ExposicionPerros {
     
      //Metodo para buscar un perro por nombre de lista
     public static Perro buscarPerroPorNombre(String nombre) {
+        /*for (Perro perro : listarPerros) {
+                    System.out.println("Nombre: " + perro.getNombre() + ", Puntos: " + perro.getPuntos());
+                }*/
         for (Perro perro : listarPerros) {
             if (perro.getNombre().equals(nombre)) {
+                //System.out.println("retorna perro");
                 return perro; // Retorna  el perro si se encuentra
+                
             }
         }
         return null; // Retorna null si no se encuentra el perro

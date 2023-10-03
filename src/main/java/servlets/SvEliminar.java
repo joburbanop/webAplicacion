@@ -7,6 +7,7 @@ package servlets;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -25,13 +26,31 @@ import mundo.Perro;
 @WebServlet(name = "SvEliminar", urlPatterns = {"/SvEliminar"})
 public class SvEliminar extends HttpServlet {
 
-   
 
+    
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
+        boolean  editar=true;
+        ServletContext servletContext = getServletContext();
+        
+        String nombre = request.getParameter("nombre");
+        //System.out.print("nombre a buscar: "+ nombre);
+        Perro perro =ExposicionPerros.buscarPerroPorNombre(nombre); // Implementa la lógica para buscar el perro en tu lista de perros
+        //System.out.print("perro encontrado: "+ perro.getNombre());
+        if(perro!=null){
+           
+            // Agregar la lista de perros al objeto de solicitud
+            request.setAttribute("editar", editar);
+            request.setAttribute("misPerros", perro);     
+             
+        }
+        System.out.println("holñiiiiiiiiiiiiiii "+perro.getNombre());
+        // Redireccionar al navegador del usuario
+        request.getRequestDispatcher("templates/mostrarPerroBuscadoYEditar.jsp").forward(request, response);
     }
 
    

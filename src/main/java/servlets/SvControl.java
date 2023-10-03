@@ -60,6 +60,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 
         String nombre = request.getParameter("nombre");
         Perro perro =ExposicionPerros.buscarPerroPorNombre(nombre); // Implementa la lógica para buscar el perro en tu lista de perros
+        System.out.println("PERRO DESPUES DE RETORNAR: "+perro);
         if (perro != null) {
             // Genera la respuesta HTML con los detalles del perro
             String perroHtml = "<h2>Nombre: " + perro.getNombre() + "</h2>"
