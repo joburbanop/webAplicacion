@@ -48,12 +48,7 @@ public class SvEditar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        /*--------------------------------------------------------------------
-        *Serializacion
-       *----------------------------------------------------------------------- */
-        //System.out.print("hollllllllllllllllllllllllllllllllllliiiiiiiiiiiiiiiiiiiiiii");
-        // Crear una carpeta
-        // Crear una carpeta
+        
             
         ServletContext servletContext = getServletContext();
         
